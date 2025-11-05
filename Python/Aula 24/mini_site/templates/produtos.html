@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+
+    <h1>Conheça Nossos Produtos</h1>
+    <p>Aqui está nossa lista de produtos disponíveis:</p>
+    <ul>
+        <!--
+        Este é um laço de repetição do Jinja2.
+        Ele irá percorrer a lista 'produtos' que foi passada pelo
+        app.py.
+        Para cada 'item' na lista, ele criará um <li>.
+        -->
+        {% for item in produtos %}
+
+        <li>{{ item.nome }} - <strong>Preço:</strong> {{ item.preco}}</li>
+
+        {% endfor %}
+    </ul>
+{% endblock %}

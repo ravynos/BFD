@@ -1,0 +1,65 @@
+</head>
+<body>
+    
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                
+                <a class="navbar-brand" href="/">Meu Site</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class_orig="nav-link {% if titulo == 'Início' %}active{% endif %}" 
+                               {% if titulo == 'Início' %}aria-current="page"{% endif %} 
+                               href="/">Início</a>
+                        </li>
+                        <li class="nav-item">
+                             <a class="nav-link {% if titulo == 'Produtos' %}active{% endif %}" 
+                               {% if titulo == 'Produtos' %}aria-current="page"{% endif %} 
+                               href="/produtos">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                             <a class="nav-link {% if titulo == 'Contatos' %}active{% endif %}" 
+                               {% if titulo == 'Contatos' %}aria-current="page"{% endif %} 
+                               href="/contatos">Contatos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        ```
+
+---
+
+### 🧐 O que cada classe faz?
+
+Aqui está uma explicação rápida do que esse código faz:
+
+* **`<nav class="navbar ...">`**: O contêiner principal da barra de navegação.
+* **`navbar-expand-lg`**: Esta é a mágica da responsividade. Significa: "Expanda a barra (mostre os links) em telas grandes (`lg` = large) e recolha (mostre o botão hambúrguer) em telas menores."
+* **`navbar-dark bg-dark`**: Define o tema. `navbar-dark` diz para usar texto claro, e `bg-dark` define o fundo como escuro.
+    * *Alternativa:* Você poderia usar `navbar-light bg-light` para um tema claro, como o padrão.
+* **`container-fluid`**: Faz a barra de navegação ocupar 100% da largura da tela.
+    * *Alternativa:* Use apenas `container` se quiser que a barra tenha margens laterais (alinhada com o conteúdo).
+* **`navbar-brand`**: Usado para o logo ou nome principal do site.
+* **`<button class="navbar-toggler" ...>`**: Este é o botão "hambúrguer" que aparece em dispositivos móveis.
+* **`data-bs-toggle="collapse"`** e **`data-bs-target="#navbarNav"`**: Estes atributos dizem ao JavaScript do Bootstrap: "Quando este botão for clicado, alterne a visibilidade do elemento com o ID `#navbarNav`".
+* **`<div class="collapse navbar-collapse" id="navbarNav">`**: Esta `div` envolve os links que serão recolhidos. O `id` dela **deve** ser o mesmo do `data-bs-target` do botão.
+* **`ms-auto`**: (margin-start: auto) Esta classe utilitária empurra seus links para a direita da barra de navegação. Remova-a se quiser os links logo após o "Nome do Site".
+* **`nav-link`**: A classe padrão para os links de navegação.
+* **`active`**: Esta classe (que estamos adicionando dinamicamente) dá um destaque visual ao link da página que o usuário está visitando no momento.
+
+Ao recarregar sua página (e se o Bootstrap CDN estiver corretamente no seu `<head>`), você verá imediatamente sua nova barra de navegação.
+
+---
+
+O próximo passo seria organizar o conteúdo dentro do seu `{% block conteudo %}` usando o sistema de grid (linhas e colunas) do Bootstrap.
+
+Quer ajuda para adicionar um `container` e um layout de grid simples ao seu bloco de conteúdo?

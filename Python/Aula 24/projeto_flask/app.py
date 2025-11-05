@@ -3,7 +3,7 @@
 # render_template: Para renderizar (mostar) nossos arquivos HTML.
 # request: Para acesssar os dados enviados pelo formulário (como o nome do usuário)
 
-from Flask import Flask, render_template, request
+from flask import Flask, render_template, request
 
 # Passo 2: Criar uma instãncia da aplicação Flask
 # A variável '__name__' ajuda o Flask a saber onde procurar por arquivos como os templates
@@ -18,7 +18,7 @@ app = Flask(__name__)
 # POST: Quando o usuário preenche e envia o formulário.
 
 @app.route('/cadastro', methods=['GET', 'POST'] )
-def cadatro():
+def cadastro():
     # Passo 4: Verificar o método da requisição
     # Se o método for 'POST', significa que o usuário enviou o formulário.
     if request.method ==  'POST':
@@ -35,15 +35,15 @@ def cadatro():
     # Passo 5: Se o método for 'GET' (ou qualquer outro que não seja 'POST')
     # Apenas exibe o formulário de cadastro para o usuário preencher.
 
-        return render_template('cadastro.html')
+    return render_template('cadastro.html')
     
     # Passo 6: Linha necessária para rodar a aplicação quando o script é executado diretamente.
 
-    if __name__ == '__main __':
+if __name__ == '__main __':
     # app.run(debug=True) inicia o servidor.
     # debug=True é útil durante o desenvolvimento, pois reinicia o servidor
     # automaticamente a cada mudança no código e mostra erros detalhados no navegador.
 
-        app.run(debug=True)
+    app.run(debug=True)
 
     

@@ -1,0 +1,24 @@
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('bg.jpg');
+
+    background-size: cover; /* Estica a imagem */
+    background-position: center; /* Centraliza */
+    background-repeat: no-repeat; /* Não repete */
+    background-attachment: fixed; /* Imagem parada ao rolar */
+    min-height: 100vh; /* Altura mínima da tela toda */
+}
+
+.cartao-interativo {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cartao-interativo:hover {
+    transform: translate(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.5) !important;
+}
+
+#rodape {
+    color: white;
+}

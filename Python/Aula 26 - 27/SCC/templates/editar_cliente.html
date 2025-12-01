@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block titulo %}Novo Cadastro{% endblock %}
+{% block titulo %}Editar Cliente{% endblock %}
 
 {% block conteudo %}
 <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
@@ -8,14 +8,15 @@
         
         <div class="card shadow-lg border-0 rounded-3">
             
-            <div class="card-header bg-primary text-white text-center py-4">
-                <div style="font-size: 3rem;" class="mb-2">👤</div>
-                <h3 class="card-title fw-bold mb-0">Novo Cliente</h3>
+            <div class="card-header bg-warning text-dark text-center py-4">
+                <div style="font-size: 3rem;" class="mb-2">✏️</div>
+                <h3 class="card-title fw-bold mb-0">Editar Cliente</h3>
+                <p class="mb-0 mt-1 opacity-75 fw-bold">ID: #{{ cliente['id'] }}</p>
             </div>
 
             <div class="card-body p-4 p-md-5">
                 
-                <form method="POST" action="{{ url_for('cadastrar') }}">
+                <form method="POST" action="{{ url_for('editar', id=cliente['id']) }}">
                     
                     <div class="mb-4">
                         <label for="nome" class="form-label fw-bold text-secondary">Nome Completo</label>
@@ -23,7 +24,7 @@
                                class="form-control form-control-lg" 
                                id="nome" 
                                name="nome" 
-                               placeholder="Digite o nome do cliente" 
+                               value="{{ cliente['nome'] }}" 
                                required>
                     </div>
 
@@ -33,19 +34,19 @@
                                class="form-control form-control-lg" 
                                id="idade" 
                                name="idade" 
-                               placeholder="Ex: 25" 
+                               value="{{ cliente['idade'] }}" 
                                min="0" 
                                max="130"
                                required>
                     </div>
 
                     <div class="d-grid gap-2 mt-5">
-                        <button type="submit" class="btn btn-primary btn-lg fw-bold shadow-sm">
-                            Salvar Cadastro
+                        <button type="submit" class="btn btn-warning btn-lg fw-bold shadow-sm">
+                            Salvar Alterações
                         </button>
                         
-                        <a href="/" class="btn btn-outline-secondary btn-lg border-0">
-                            Cancelar e Voltar
+                        <a href="{{ url_for('listar') }}" class="btn btn-outline-secondary btn-lg border-0">
+                            Cancelar
                         </a>
                     </div>
 
@@ -53,6 +54,7 @@
 
             </div>
         </div>
-        </div>
+
+    </div>
 </div>
 {% endblock %}
